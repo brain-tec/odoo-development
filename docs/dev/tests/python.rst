@@ -39,7 +39,7 @@ Example (will result testing error)::
 
     from odoo.tests.common import TransactionCase
     class TestMessage(TransactionCase):
-        at_install = False
+        at_install = True
         post_install = True
         def test_count(self):
             self.assertEqual(1, 0)
@@ -89,15 +89,19 @@ at_install, post_install
 ========================
 By default, odoo runs test with paramaters::
 
-        at_install = False
-        post_install = True
+        at_install = True
+        post_install = False
 
-``at_install`` - run tests right after loading module's files. It runs only in demo mode.
+at_install 
+----------
+* runs tests right after loading module's files. It runs only in demo mode.
+* runs as if other not loaded yet modules are not installed at all
 
-``post_install`` - run test after full installation process. It differs from ``at_install``, because 
-
-* it runs after calling ``registry.setup_models(cr)``
-* it runs after calling ``model._register_hook(cr)``
+post_install
+------------
+* runs after installing all modules in current installation set
+* runs after calling ``registry.setup_models(cr)``
+* runs after calling ``model._register_hook(cr)``
 
 setUp and other methods
 =======================

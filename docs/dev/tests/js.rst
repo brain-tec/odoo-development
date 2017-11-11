@@ -9,8 +9,8 @@ For automatic web tests odoo uses `phantomjs <http://phantomjs.org>`_.
 
 How to write automatic js tests:
 
-    * Follow instruction for `python tests <./python.html#docker-users>`_
-    * In test method make call ``self.phantom_js``
+* Follow instruction for `python tests <./python.html#docker-users>`_
+* In test method make call ``self.phantom_js``
 
 
 self.phantom_js()
@@ -149,8 +149,16 @@ How to run js tests
 
 Additionally to `general requirements <./python.html#how-to-run-tests>`_, to run odoo with phantomjs tests:
 
-    * `Install phantomjs <http://phantomjs.org/download.html>`_ or use `dockers <./python.html#docker-users>`_.
-    * use ``--db-filter=.*``
+* `Install phantomjs <http://phantomjs.org/download.html>`_ or use `dockers <./python.html#docker-users>`_.
+* use ``--db-filter=.*``
 
 .. TODO: Why?
 .. * werkzeug must be 0.11.5 or higher
+
+Phantom_js + python tests
+=========================
+If you need you run some python code before or after calling ``phantom_js`` you shall not use ``self.env`` and you need to create new env instead::
+
+    phantom_env = api.Environment(self.registry.test_cr, self.uid, {}) 
+
+This is because ``HttpCase`` uses special cursor and using regular cursor via ``self.env`` leads to deadlocks or different values in database.
