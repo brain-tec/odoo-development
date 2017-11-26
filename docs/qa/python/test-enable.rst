@@ -2,18 +2,18 @@
  How to run tests
 ==================
 
-This tests runs with following parameters:
+Use following parameters when you start odoo:
 
+*  ``--test-enable``
 *  ``-d $DB_CONTAINER``
 *  ``-i $MODULE``
-*  ``--test-enable``
 *  ``--workers=0``
 
 
 js tests
 ========
 
-To run odoo with phantomjs tests you additionally you need:
+To run tests with phantomjs tests you also need:
 
 * `Install phantomjs <http://phantomjs.org/download.html>`_ or use dockers (see below)
 * use ``--db-filter=.*``
@@ -32,11 +32,16 @@ You don't need to remove docker container to run test. You can run it in a separ
 
 So, to run tests with docker:
 
-* use a db which contains required modules (if you haven't got such db run new container with the key ``-i`` instead of ``-u``. ``-i`` installs required module with its dependencies, whereas ``-u`` update already installed module)
+* use an odoo database which has required modules installed (otherwise it will test all dependencies too)
 * OPTIONAL: stop main odoo container, but keep db container
 * run new container, e.g.::
 
       docker run --rm --link $DB_CONTAINER:db \
       -v /something/at/host:/something/at/container \
       itprojectsllc/install-odoo:$ODOO_BRANCH-dev \
-      -- -d $DATABASE_NAME -u $MODULE --test-enable --workers=0 --stop-after-init
+      -- \
+      --test-enable \
+      --workers=0 \
+      --stop-after-init
+      -d $DATABASE_NAME \
+      -i $MODULE
