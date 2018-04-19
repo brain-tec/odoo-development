@@ -8,10 +8,13 @@
      
 2. Or use UI
 
+=======
  10.0+
- =====
+=======
 * go to ``Settings``
 
 * click ``Activate the developer mode(with assets)``
 
 .. image:: ../../images/debug-assets-1.png
+
+.. image:: ../../images/debug-assets-2.png
