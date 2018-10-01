@@ -98,11 +98,13 @@ Update templates:
     REPO_NAME=mail-addons
     REPO_NAME=misc-addons
     REPO_NAME=odoo-saas-tools
+    REPO_NAME=saas-addons
     REPO_NAME=odoo-telegram
     REPO_NAME=pos-addons
     REPO_NAME=website-addons
 
     # Branch: choose one of the options
+    ODOO_BRANCH=12.0
     ODOO_BRANCH=11.0
     ODOO_BRANCH=10.0
     ODOO_BRANCH=9.0
@@ -111,7 +113,7 @@ Update templates:
     # to get commit sha use following inside odoo repo: "git show HEAD | head" 
     ODOO_REVISION={ODOO_COMMIT_SHA_TO_BE_UPDATED}
     # alternatively (use appropriate path to odoo source):
-    git -C ~/odoo/odoo-${ODOO_BRANCH}/odoo fetch upstream &&  export ODOO_REVISION=`git -C ~/odoo/odoo-10.0/odoo rev-parse upstream/${ODOO_BRANCH}`
+    git -C ~/odoo/odoo-${ODOO_BRANCH}/odoo fetch upstream &&  export ODOO_REVISION=`git -C ~/odoo/odoo-${ODOO_BRANCH}/odoo rev-parse upstream/${ODOO_BRANCH}`
 
 
     # Category: shoose one of the options
