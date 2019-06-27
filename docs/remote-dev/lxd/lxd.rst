@@ -33,17 +33,18 @@
     CONTAINER="${GITHUB_USERNAME}"
     SERVER_DOMAIN="${GITHUB_USERNAME}.dev.it-projects.info"
     NGINX_CONF="dev-${GITHUB_USERNAME}.conf"
-    LOCAL_IP="10.0.3.123"  # use one from network subnet
+    LOCAL_IP="10.37.82.100"  # use one from network subnet
     PORT="10100"  # unique per each developer
 
-    lxc init ubuntu-daily:16.04 ${CONTAINER} -p default -p docker
+    lxc init ubuntu-daily:16.04 ${CONTAINER} -p default
     lxc network attach ${LXD_NETWORK} ${CONTAINER} eth0
     lxc config device set ${CONTAINER} eth0 ipv4.address ${LOCAL_IP}
-    lxc config set ${CONTAINER} security.privileged true
     lxc config device add ${CONTAINER} sharedcache disk path=/root/.cache source=/var/lxc/share/cache
+    lxc config set ${CONTAINER} security.privileged true
+    lxc config set ${CONTAINER} raw.lxc "lxc.apparmor.profile=unconfined"
 
     # forward ssh port
-    iptables -t nat -A PREROUTING -p tcp -i eth0 --dport ${PORT} -j DNAT \
+    iptables -t nat -A PREROUTING -p tcp --dport ${PORT} -j DNAT \
       --to-destination ${LOCAL_IP}:22
       
     # save iptables record. Otherwise it's disappeared after rebooting
@@ -60,7 +61,11 @@
     # install some packages
     lxc exec  ${CONTAINER} -- apt update
     lxc exec  ${CONTAINER} -- apt dist-upgrade -y
-    lxc exec  ${CONTAINER} -- apt install docker.io htop nginx -y
+    lxc exec  ${CONTAINER} -- apt install docker.io htop python3-pip -y
+    lxc exec  ${CONTAINER} -- pip3 install odooup -y
+    # https://docs.docker.com/v17.09/compose/install/#install-compose
+    lxc exec  ${CONTAINER} -- curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    lxc exec  ${CONTAINER} -- chmod +x /usr/local/bin/docker-compose
 
     ## nginx on host machine
     cd /tmp/
