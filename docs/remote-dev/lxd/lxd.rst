@@ -46,11 +46,12 @@
     lxc init ubuntu-daily:16.04 ${CONTAINER} -p default && \
     lxc network attach ${LXD_NETWORK} ${CONTAINER} eth0 && \
     lxc config device set ${CONTAINER} eth0 ipv4.address ${LOCAL_IP} && \
-    lxc config device add ${CONTAINER} sharedcachenoroot disk path=/home/noroot/.cache source=/var/lxc/share/cache && \
     lxc config set ${CONTAINER} security.privileged true && \
     # allow run docker in previliged mode. 
     # https://discuss.linuxcontainers.org/t/failed-to-write-a-rwm-to-devices-allow-operation-not-permitted-in-privileged-container/925/3
     lxc config set ${CONTAINER} raw.lxc "$RAW_LXC"
+
+
     # forward ssh port
     iptables -t nat -A PREROUTING -p tcp --dport ${PORT} -j DNAT \
       --to-destination ${LOCAL_IP}:22
@@ -60,13 +61,15 @@
     sudo netfilter-persistent reload
 
     PASS="$(< /dev/urandom tr -dc _A-Za-z0-9 | head -c${1:-32};echo;)"
-    lxc start ${CONTAINER} && \
+    lxc start ${CONTAINER}
+    
+    lxc exec ${CONTAINER} -- apt-get update && \
+    lxc exec  ${CONTAINER} -- apt dist-upgrade -y
+
     # colorize prompt:
     lxc exec ${CONTAINER} -- sed -i "s/#force_color_prompt=yes/force_color_prompt=yes/" /root/.bashrc && \
     lxc exec ${CONTAINER} -- sed -i "s/01;32m/01;36m/" /root/.bashrc && \
     # install some packages
-    lxc exec ${CONTAINER} -- apt-get update && \
-    lxc exec  ${CONTAINER} -- apt dist-upgrade -y && \
     lxc exec  ${CONTAINER} -- apt install docker.io htop python3-pip -y && \
     lxc exec  ${CONTAINER} -- ln -s /usr/bin/pip3 /usr/bin/pip && \
     lxc exec  ${CONTAINER} -- pip install odooup && \
@@ -92,6 +95,9 @@
     lxc exec ${CONTAINER} -- locale-gen --purge en_US.UTF-8 && \
     lxc exec ${CONTAINER} -- bash -c "echo -e 'LANG=\"en_US.UTF-8\"\nLANGUAGE=\"en_US:en\"\n' > /etc/default/locale"
 
+    lxc config device add ${CONTAINER} sharedcachenoroot disk path=/home/noroot/.cache source=/var/lxc/share/cache && \
+    lxc stop ${CONTAINER} && \
+    lxc start ${CONTAINER}
 
     ## nginx on host machine
     cd /tmp/
