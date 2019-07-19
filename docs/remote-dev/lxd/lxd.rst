@@ -43,7 +43,7 @@
     lxc.cgroup.devices.allow=a
     lxc.cap.drop=
     EOF
-    lxc init ubuntu-daily:16.04 ${CONTAINER} -p default && \
+    lxc init ubuntu-daily:18.04 ${CONTAINER} -p default && \
     lxc network attach ${LXD_NETWORK} ${CONTAINER} eth0 && \
     lxc config device set ${CONTAINER} eth0 ipv4.address ${LOCAL_IP} && \
     lxc config set ${CONTAINER} security.privileged true && \
@@ -77,6 +77,7 @@
     lxc exec  ${CONTAINER} -- curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
     lxc exec  ${CONTAINER} -- chmod +x /usr/local/bin/docker-compose && \
     # update git. See https://github.com/xoe-labs/odooup/issues/8
+    # TODO: this may not be needed in ubuntu 18
     lxc exec ${CONTAINER} -- add-apt-repository ppa:git-core/ppa -y && \
     lxc exec ${CONTAINER} -- apt-get update && \
     lxc exec ${CONTAINER} -- apt-get install git -y && \
