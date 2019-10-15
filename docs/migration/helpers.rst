@@ -39,7 +39,7 @@ Updating odoo versions in docs
 .. code-block:: sh
 
     # bump versions in docs (excluding "Tested on Odoo" expression)
-    find . -type f -name *.rst -or -name *.html | xargs sed -i '/Tested on Odoo/!s/12.0/13.0/g'
+    find . -type f -name *.rst -or -name *.html -or -name *.md | xargs sed -i '/Tested on /!s/12.0/13.0/g'
 
 Reviewing odoo updates
 ======================
@@ -94,5 +94,6 @@ Commands below may help you to estimate amount of work to migrate module. The co
 Other tools
 ===========
 
-* https://github.com/grap/odoo-migrate
+* all-in-one tool: https://github.com/grap/odoo-migrate
 * OCA autopep: https://github.com/OCA/maintainer-tools#auto-fix-pep8-guidelines
+* `bowler <https://pybowler.io>`__ based fixers: https://gist.github.com/blaggacao/13cf79fad489bca962e4a43eb580e9ee
