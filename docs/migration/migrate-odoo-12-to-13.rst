@@ -21,7 +21,20 @@ New API
     # view_type is deleted:
     # https://github.com/odoo/odoo/commit/3cd7ed07a29c89ddf193796c20a812b9bf21e284
     find . -type f -name '*.xml' | xargs perl -i -pe 's/\s*\<field name="view_type"\>form\<\/field\>\n//g'
+    find . -type f -name '*.xml' | xargs perl -i -pe 's/view_type="form"//g'
     # TODO: script for python files
+    
+    # key2 is deleted, src_model is renamed
+    # https://github.com/odoo/odoo/commit/10f1a1a0c45
+    find . -type f -name '*.xml' | xargs sed -i 's/src_model="\([^"]*\)"/binding_model="\1"/g'
+    find . -type f -name '*.xml' | xargs sed -i 's/key2="client_action_multi"//g'
+    
+    # ControlPanelMixin is deleted
+    # https://github.com/odoo/odoo/commit/40dd1219385
+    # delete line with require('web.ControlPanelMixin');
+    find . -type f -name '*.js' | xargs sed -i '/web.ControlPanelMixin/d'
+    find . -type f -name '*.js' | xargs perl -i -p0e 's/ControlPanelMixin, \{\n\s*template/{\n    hasControlPanel: true,\n    contentTemplate/g'
+    
     
     
     # serialize_exception was move from odoo/http.py
@@ -35,6 +48,8 @@ New API
     # https://github.com/odoo/odoo/commit/758382b3a73da024d6e1dc04a474d2868223767a
     # You may need:
     # * delete pycompat importing manually
+    find . -type f -name '*.py' | xargs sed -i "s/odoo.tools.pycompat.text_type/str/g"
+    find . -type f -name '*.py' | xargs sed -i "s/tools.pycompat.text_type/str/g"
     find . -type f -name '*.py' | xargs sed -i "s/pycompat.text_type/str/g"
     find . -type f -name '*.py' | xargs sed -i "s/text_type/str/g"
 
@@ -66,3 +81,14 @@ If the code above gives non-empty output, you may need to do following updates:
 
 * get rid of that js
 * Move missed configuration to Settings menu (``res.config``)
+
+nvd3
+====
+
+The library is deleted: https://github.com/odoo/odoo/commit/596206cdf6d
+
+Here are examples how to update code:
+
+* Switch to Chart.js:
+
+  * https://github.com/odoo/odoo/commit/3ab3082a326
