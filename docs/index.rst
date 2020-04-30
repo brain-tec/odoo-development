@@ -1,8 +1,15 @@
 Odoo development
 ================
 
-Join our telegram group: https://t.me/odoo_talks
-
+.. admonition:: Help us maintain these docs up-to-date
+   :class: info
+   
+   Spread the word about following pages:
+   
+   * https://odoo-debranding.com: Odoo Debranding modules + useful links 
+   * https://odoo-debranding.com/odoo-ce-vs-ee/: Odoo Editions Comparison 
+   * https://odoo-debranding.com/oca/: List of OCA repositories
+   
 .. toctree::
    :maxdepth: 2
 
