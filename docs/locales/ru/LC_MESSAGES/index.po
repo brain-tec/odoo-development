@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Development master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-06 13:43+0000\n"
+"POT-Creation-Date: 2020-04-30 23:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:2
-#: f43f9b001574414198b5741db4eb61ff
+#: ../../index.rst:2 d8b8bfa6ed6648fd9466d4339802c697
 msgid "Odoo development"
 msgstr "Настольная книга разработчика Щвщщ (Odoo)"
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:4
-#: 33c01f6f87944372994bcb40ee44eb77
-msgid "Join our telegram group: https://t.me/odoo_talks"
-msgstr "Сообщество разработчиков: https://t.me/odoo_talks"
+#: ../../index.rst:4 c7a06071cc0e47ae8037bf06b0e229fc
+msgid "Help us maintain these docs up-to-date"
+msgstr ""
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:23
-#: 5ce4475956074a94ab415469faf76cd3
+#: ../../index.rst:7 6f080f06e3874a94b739aeff98f5edee
+msgid "Spread the word about following pages:"
+msgstr ""
+
+#: ../../index.rst:9 e6b52df8098243b3b8610872a9d76d19
+msgid "https://odoo-debranding.com: Odoo Debranding modules + useful links"
+msgstr ""
+
+#: ../../index.rst:10 aee4ae01913d4ed6b0c8bcc25fc2e516
+msgid "https://odoo-debranding.com/odoo-ce-vs-ee/: Odoo Editions Comparison"
+msgstr ""
+
+#: ../../index.rst:11 28bcd583ea93484fa6ac76eda46f8c91
+msgid "https://odoo-debranding.com/oca/: List of OCA repositories"
+msgstr ""
+
+#: ../../index.rst:30 875f69c2dc47489fae786870e3d5adc0
 msgid "Need our service?"
 msgstr "Нужна помощь?"
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:26
-#: d96f88658b914940ac4265f76fa9f0ef
+#: ../../index.rst:33 ffadbfc6f0034e49911a7c5e64d56e8a
 msgid ""
-"For module development contact us by `email <mailto:it@it-projects.info>`__ "
-"or fill out `request form <https://www.it-"
+"For module development contact us by `email <mailto:it@it-"
+"projects.info>`__ or fill out `request form <https://www.it-"
 "projects.info/page/website.contactus>`__:"
 msgstr ""
-"Свяжитесь с нами по `электропочте <mailto:it@it-projects.info>`__ "
-"или заполните `форму <https://www.it-"
+"Свяжитесь с нами по `электропочте <mailto:it@it-projects.info>`__ или "
+"заполните `форму <https://www.it-"
 "projects.info/page/website.contactus>`__:"
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:28
-#: e8b0c64daff547c1b025d369d97d8ee9
+#: ../../index.rst:35 18c47c37c7b04cad96d62d3379c3001d
 msgid "it@it-projects.info"
 msgstr ""
 
-#: /home/runner/work/odoo-development/odoo-development/docs/index.rst:29
-#: 8ca313c4c14c4a55986af8ab06245258
+#: ../../index.rst:36 39879ef26eb343d2acaa2636fe6f5dbc
 msgid "https://www.it-projects.info/page/website.contactus"
 msgstr ""
+
+#~ msgid "Join our telegram group: https://t.me/odoo_talks"
+#~ msgstr "Сообщество разработчиков: https://t.me/odoo_talks"
+
