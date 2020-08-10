@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Development master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 23:25+0000\n"
+"POT-Creation-Date: 2020-08-04 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../index.rst:2 e9e098657e2941ab9dd9e9e07a7924b8
+#: ../../index.rst:2 ae8a5578ca764d2289ef8453e5aaf5fe
 msgid "Odoo development"
 msgstr "Настольная книга разработчика Щвщщ (Odoo)"
 
-#: ../../index.rst:4 45b00f8fb6ce4dbf8d263764c292764f
+#: ../../index.rst:4 13d10dd90bbb404b8f6ea44ea8c4ea54
 msgid "Help us maintain these docs up-to-date"
 msgstr ""
 
-#: ../../index.rst:7 de9dafe806a74ee5a56cb75d9f8956ce
+#: ../../index.rst:7 8d4a72e2970442a2ac8455e38541b7ce
 msgid "Spread the word about following pages:"
 msgstr ""
 
-#: ../../index.rst:9 47c9c303d79f4bd69c7363a28c0f5cc0
+#: ../../index.rst:9 3f462cf5e0f445caa151cd6b85067840
 msgid ""
 "https://odoo-debranding.com: Odoo Debranding modules + useful links for "
 "developers"
 msgstr ""
 
-#: ../../index.rst:10 b89a76399ad54cca9332fd012d395853
+#: ../../index.rst:10 3f4cfe1f162044b896686e695ec017b7
 msgid "https://odoo-debranding.com/odoo-ce-vs-ee/: Odoo Editions Comparison"
 msgstr ""
 
-#: ../../index.rst:11 931ebe21877c48afab15755ab1493ea6
+#: ../../index.rst:11 e5d92d79efc1432a883bcbbc7ca00d3d
 msgid "https://odoo-debranding.com/oca/: List of OCA repositories"
 msgstr ""
 
-#: ../../index.rst:30 2463c4774c774be5aaa21f7905d37202
+#: ../../index.rst:30 012a298216e84d40ae07f93bafa0688b
 msgid "Need our service?"
 msgstr "Нужна помощь?"
 
-#: ../../index.rst:33 a6aedf2a730f4ee2a4a1f86deec3718e
+#: ../../index.rst:33 775aea7f610e4b14be6ddbcf181674c5
 msgid ""
 "For module development contact us by `email <mailto:it@it-"
 "projects.info>`__ or fill out `request form <https://www.it-"
@@ -58,17 +58,14 @@ msgstr ""
 "заполните `форму <https://www.it-"
 "projects.info/page/website.contactus>`__:"
 
-#: ../../index.rst:35 4125ddb1db584d8a811f07cbfc7d970d
+#: ../../index.rst:35 026694d313f94029a3804eafabe8c174
 msgid "it@it-projects.info"
 msgstr ""
 
-#: ../../index.rst:36 a57cc644f3804b759501b02ce30c9c55
+#: ../../index.rst:36 cc88eef2a446475cb200e513ea0d051d
 msgid "https://www.it-projects.info/page/website.contactus"
 msgstr ""
 
 #~ msgid "Join our telegram group: https://t.me/odoo_talks"
 #~ msgstr "Сообщество разработчиков: https://t.me/odoo_talks"
-
-#~ msgid "https://odoo-debranding.com: Odoo Debranding modules + useful links"
-#~ msgstr ""
 
